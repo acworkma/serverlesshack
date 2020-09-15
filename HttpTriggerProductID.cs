@@ -19,15 +19,15 @@ namespace My.ProductID
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
 
-            string name = req.Query["name"];
+            string ProductID = req.Query["ProductID"];
 
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             dynamic data = JsonConvert.DeserializeObject(requestBody);
-            name = name ?? data?.name;
+            ProductID = ProductID ?? data?.ProductID;
 
-            string responseMessage = string.IsNullOrEmpty(name)
-                ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
-                : $"Hello, {name}. This HTTP triggered function executed successfully.";
+            string responseMessage = string.IsNullOrEmpty(ProductID)
+                ? "This HTTP triggered function executed successfully. Pass a ProductID in the query string or in the request body for a personalized response."
+                : $"The product name for {ProductID} is Starfuit Explosion";
 
             return new OkObjectResult(responseMessage);
         }
