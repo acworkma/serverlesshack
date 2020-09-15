@@ -27,7 +27,7 @@ namespace My.ProductID
 
             string responseMessage = string.IsNullOrEmpty(ProductID)
                 ? "This HTTP triggered function executed successfully. Pass a ProductID in the query string or in the request body for a personalized response."
-                : $"The product name for {ProductID} is Starfuit Explosion";
+                : $"The product name for {ProductID} is Starfruit Explosion";
 
             return new OkObjectResult(responseMessage);
         }
